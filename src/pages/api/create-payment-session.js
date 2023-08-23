@@ -6,13 +6,13 @@ export default async function handler(req, res) {
     const amount ="350";
   
     const session = await createPaymentSession({
-      secretKey: process.env.CHECKOUT_SECRET_KEY,
-      publicKey: process.env.CHECKOUT_PUBLIC_KEY,
+      secretKey: "sk_sbox_qb47zwgylpfrtqiifnnx5tpdhqe",
+      publicKey: "pk_sbox_jznezw6fafiddjejooifh7ydyue",
       amount,
       currency: 'USD',
       successUrl: '/success', // Replace with appropriate URLs for success/failure pages
       failureUrl: '/failure',
     });
     
-    res.status(200).json({ sessionId : session.id });
+    res.status(200).json({ sessionId : 'session.id' });
 }
