@@ -5,7 +5,6 @@ export default async function handler(req, res) {
 
     const amount ="350";
   
-  try {
     const session = await createPaymentSession({
       secretKey: process.env.CHECKOUT_SECRET_KEY,
       publicKey: process.env.CHECKOUT_PUBLIC_KEY,
@@ -16,9 +15,4 @@ export default async function handler(req, res) {
     });
     
     res.status(200).json({ sessionId : session.id });
-    
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'An error occurred while creating a payment session.' });
-  }
 }
